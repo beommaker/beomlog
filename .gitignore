@@ -23,3 +23,6 @@
 */*/*/__pycache__/
 */*/__pycache__/
 */__pycache__/
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
