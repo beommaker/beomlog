@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <strong>
+        <a href="{% url 'create' %}" style="text-decoration: none; color: black; font-size: 26px; background-color: black; color: white">
+            Write
+        </a>
+    </strong>
+    <hr>
     <div class="posts">
         {% for object in object_list %}
             {% include '_post.html' %}

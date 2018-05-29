@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from beomlog.blog.models import Post
 
@@ -11,3 +11,9 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'detail.html'
+
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['category', 'title', 'content']
+    template_name = 'create.html'
