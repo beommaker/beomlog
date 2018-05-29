@@ -8,11 +8,17 @@
     <title>Beomlog</title>
 </head>
 <body>
-<h1>Beomlog</h1>
-<hr>
-<br>
-<br>
-{% block content %}
-{% endblock %}
+<div class="header" style="padding-bottom: 50px;">
+    <h1 style="font-size: 50px;">
+        <a href="{% url 'home' %}" style="text-decoration: none; color: black;">
+            Beomlog
+        </a>
+    </h1>
+    <hr>
+</div>
+<div class="main">
+    {% block content %}
+    {% endblock %}
+</div>
 </body>
 </html>
