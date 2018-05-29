@@ -2,7 +2,8 @@
 
 {% block content %}
     <strong>
-        <a href="{% url 'create' %}" style="text-decoration: none; color: black; font-size: 26px; background-color: black; color: white">
+        <a href="{% url 'create' %}"
+           style="text-decoration: none; color: black; font-size: 26px; background-color: black; color: white">
             Write
         </a>
     </strong>
@@ -10,7 +11,11 @@
     <h2>Beomlog Categories</h2>
     <ul class="category">
         {% for category in categories %}
-            <li>{{ category.name }}</li>
+            <li>
+                <a href="{% url 'home' %}?category={{ category.id }}">
+                    {{ category.name }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
     <hr>
