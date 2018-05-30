@@ -1,4 +1,5 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from beomlog.blog.models import Post, Category
 
@@ -35,8 +36,13 @@ class PostCreateView(CreateView):
 class PostUpdateView(UpdateView):
     model = Post
     fields = ['category', 'title', 'content']
-    template_name = 'update.html'
+    template_name = '_update.html'
     pk_url_kwarg = 'post_pk'
     context_object_name = 'post'
 
 
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('home')
+    template_name = '_delete.html'
+    pk_url_kwarg = 'post_pk'
