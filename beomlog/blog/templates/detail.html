@@ -2,4 +2,7 @@
 
 {% block content %}
     {% include '_post.html' %}
+    <a href="{% url 'update' object.id %}">
+        <button type="button" style="font-size: 20px;">Update</button>
+    </a>
 {% endblock %}

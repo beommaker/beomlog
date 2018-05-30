@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from beomlog.blog.models import Post, Category
 
@@ -30,3 +30,13 @@ class PostCreateView(CreateView):
     model = Post
     fields = ['category', 'title', 'content']
     template_name = 'create.html'
+
+
+class PostUpdateView(UpdateView):
+    model = Post
+    fields = ['category', 'title', 'content']
+    template_name = 'update.html'
+    pk_url_kwarg = 'post_pk'
+    context_object_name = 'post'
+
+
