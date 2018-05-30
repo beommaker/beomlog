@@ -1,5 +1,8 @@
+import os
 from django.db import models
 from django.urls import reverse
+
+from beomlog import settings
 
 
 class Category(models.Model):
@@ -19,6 +22,7 @@ class Post(models.Model):
     title = models.CharField(max_length=256)
     content = models.TextField(blank=True, default='')
     created = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='blog_pic', blank=True)
 
     class Meta:
         ordering = ['created']
@@ -28,3 +32,4 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pk': self.id})
+

@@ -25,17 +25,19 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'detail.html'
+    context_object_name = 'post'
 
 
 class PostCreateView(CreateView):
     model = Post
-    fields = ['category', 'title', 'content']
+    fields = ['category', 'title', 'content', 'image']
     template_name = 'create.html'
+    context_object_name = 'post'
 
 
 class PostUpdateView(UpdateView):
     model = Post
-    fields = ['category', 'title', 'content']
+    fields = ['category', 'title', 'content', 'image']
     template_name = '_update.html'
     pk_url_kwarg = 'post_pk'
     context_object_name = 'post'
