@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <p>Are you sure you want to delete "{{ object }}"?</p>
         <button type="submit" style="font-size: 20px;">Confirm</button>
         <a href="{% url 'detail' object.id %}">

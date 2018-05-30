@@ -1,10 +1,19 @@
-<article class="post">
+<article class="post" enctype="multipart/form-data">
     <h2>
         [{{ object.category.name }}]
         <a href="{% url 'detail' object.id %}" style="text-decoration: none; color: black;">
             {{ object.title }}
         </a>
     </h2>
-    {{ object.content|linebreaksbr }}
+    <div class="post__contents" style="display: flex;">
+        {% if object.image %}
+            <div>
+                <img src="{{ object.image.url }}" alt="" style="width: 300px; height: auto; padding-right: 30px;">
+            </div>
+        {% endif %}
+        <div>
+            {{ object.content|linebreaksbr }}
+        </div>
+    </div>
     <hr>
 </article>

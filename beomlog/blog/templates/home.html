@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <strong>
-        <a href="{% url 'create' %}"
-           style="text-decoration: none; color: black; font-size: 26px; background-color: black; color: white">
-            Write
-        </a>
-    </strong>
+    <a href="{% url 'create' %}"
+       style="text-decoration: none; color: black; font-size: 26px;">
+        <button type="button" style="font-size: 20px;">Write</button>
+    </a>
     <hr>
     <h2>Beomlog Categories</h2>
     <ul class="category">

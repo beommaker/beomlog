@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="." method="post">
+    <form action="." method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <br>
-        <strong>
-            <a href="{% url 'home' %}"
-               style="text-decoration: none; color: black; font-size: 26px;">
-                List
-            </a>
-        </strong>
+        <a href="{% url 'home' %}"
+           style="text-decoration: none; color: black; font-size: 26px;">
+            <button type="button" style="font-size: 20px;">Home</button>
+        </a>
         <button type="submit" style="font-size: 20px;">Write</button>
     </form>
 {% endblock %}
