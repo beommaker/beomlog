@@ -10,6 +10,8 @@
             <div>
                 <img src="{{ object.image.url }}" alt="" style="width: 300px; height: auto; padding-right: 30px;">
             </div>
+        {% else %}
+            <div>No Image.</div>
         {% endif %}
         <div>
             {{ object.content|linebreaksbr }}

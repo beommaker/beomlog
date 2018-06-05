@@ -6,7 +6,6 @@ from beomlog import settings
 
 
 class Category(models.Model):
-
     name = models.CharField(max_length=50)
 
     class Meta:
@@ -17,7 +16,6 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=256)
     content = models.TextField(blank=True, default='')
@@ -34,5 +32,10 @@ class Post(models.Model):
         return reverse('detail', kwargs={'pk': self.id})
 
     def delete(self):
-        os.remove(self.image.path)
-        return super(Post, self).delete()
+        if self.image:
+            os.remove(self.image.path)
+            return super(Post, self).delete()
+
+        else:
+            super(Post, self).delete()
+            return reverse('home')
